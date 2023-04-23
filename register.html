@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Register</title>
+</head>
+
+<body>
+    <style>
+        body {
+            text-align: center;
+            padding-top: 200px;
+            padding-left: 540px;
+        }
+    </style>
+    <div class="container">
+        <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data">
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control"
+                            placeholder="Enter your password">
+                    </div>
+                    <button type="button" id="register" name="register" class="btn btn-success">Register Now</button>
+                </div><!-- end col -->
+        </form>
+        <div class="col-sm-4">
+        </div>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+            import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyDbhQ9is2BohbjdUygtYtHMcs7zF8ddC_k",
+                authDomain: "elitmus-bf272.firebaseapp.com",
+                projectId: "elitmus-bf272",
+                storageBucket: "elitmus-bf272.appspot.com",
+                messagingSenderId: "669312198430",
+                appId: "1:669312198430:web:3141712a5c791280908b0f",
+                measurementId: "G-38961SH6W2"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            const auth = getAuth();
+            console.log(app);
+
+            document.getElementById("register").addEventListener("click", function () {
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+                //For new registration
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        // Signed in 
+                        const user = userCredential.user;
+                        console.log(user);
+                        alert("Registration successfully!!");
+                        // ...
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        // ..
+                        console.log(errorMessage);
+                        alert(error);
+                    });
+            });
+        </script>
+</body>
+
+</html>

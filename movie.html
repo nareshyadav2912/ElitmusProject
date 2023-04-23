@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Movie!</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(167, 240, 247);
+        text-align: center;
+    }
+
+    button[type="submit"] {
+        background-color: #ac76ca;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0px 0px 5px #ccc;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #ac76ca;
+    }
+
+    button[type="Go"] {
+        background-color: #ac76ca;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0px 0px 5px #ccc;
+    }
+
+    button[type="Go"]:hover {
+        background-color: #ac76ca;
+    }
+</style>
+
+<body>
+    <h1>Can you guess the Movie Name.</h1>
+    <form>
+        <label for="input">Enter the Movie Name Below.</label>
+        <br>
+        <br>
+        <img src="clue1.png" />
+        <br><br>
+        <input type="text" id="input" name="input">
+        <br><br>
+        <button type="submit" onclick="answer()">Submit</button>
+        <br><br>
+        <h3>Need Some Clues?</h3>
+        <button type="Go" onclick="go()">Go</button>
+        <br>
+    </form>
+    <script>
+        function answer() {
+            const val = document.getElementById("input").value;
+            if (val.toLowerCase()=="the pursuit of happyness") {
+                alert("Congratulations! You won the game.");
+            }
+            else{
+                alert("Wrong one!")
+            }
+        }
+        // else{
+        //     alert("ENter")
+        // }
+        function go() {
+            window.location.href = "clues1.html"
+            alert("You have total 4 Clues!")
+            // alert("No Penality for the 1st Clue")
+        }
+    </script>
+</body>
+
+</html>

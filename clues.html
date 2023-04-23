@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Clues!</title>
+</head>
+
+<body>
+    <form STYLE="padding-left:5px">
+        <h1>Here are the Clues!</h1>
+        <input TYPE="checkbox" id="BoxName1" ONCLICK="ShowCheckboxDiv('BoxName', 4)" />Show Clue-1<BR>
+        <input TYPE="checkbox" id="BoxName2" ONCLICK="ShowCheckboxDiv('BoxName', 4)" />Show Clue-2<BR>
+        <input TYPE="checkbox" id="BoxName3" ONCLICK="ShowCheckboxDiv('BoxName', 4)" />Show Clue-3<BR>
+        <input TYPE="checkbox" id="BoxName4" ONCLICK="ShowCheckboxDiv('BoxName', 4  )" />Show Clue-4<BR>
+        <div id="BoxName1Div" style="display:none;">This athlete is widely regarded as one of the best of all time in
+            their respective sport.(Note:Password is not a person name,instead every one call with other name.)</div>
+        <div id="BoxName2Div" style="display:none;">His performance in high-pressure situations and critical moments
+            sets them apart from their peers.</div>
+        <div id="BoxName3Div" style="display:none;"><a href="clue.jpeg">Guess from the Picture.</a></div>
+        <div id="BoxName4Div" style="display:none;">Scored his first ODI century on 9 September 1994 against Australia
+            in Sri Lanka at Colombo.</div>
+        <h3>Hope these clues helps to find the password,go back and enter the password.</h3>
+    </FORM>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        form {
+            font-family: Arial, sans-serif;
+            padding-left: 5px;
+        }
+
+        input[type="checkbox"] {
+            margin: 0.5em 0;
+        }
+
+        div {
+            font-family: Arial, sans-serif;
+            padding: 0.5em;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 0.5em;
+            display: none;
+        }
+    </style>
+    <script>
+        function ShowCheckboxDiv(IdBaseName, NumberOfBoxes) {
+            for (x = 1; x <= NumberOfBoxes; x++) {
+                CheckThisBox = IdBaseName + x;
+                BoxDiv = IdBaseName + x + 'Div';
+                if (document.getElementById(CheckThisBox).checked) {
+                    document.getElementById(BoxDiv).style.display = "block";
+                }
+                else {
+                    document.getElementById(BoxDiv).style.display = "none";
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
